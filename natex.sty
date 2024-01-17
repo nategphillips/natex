@@ -1,0 +1,69 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{natex}[2023/01/17 v0.01 testing]
+
+\RequirePackage{bm}
+\RequirePackage{braket}
+\RequirePackage{derivative}
+\RequirePackage{mathtools}
+\RequirePackage{esint} % load after amsmath (mathtools) to prevent clashes with definitions
+
+% automated bracing
+\DeclarePairedDelimiter{\pr}{\lparen}{\rparen}        % parenthesis
+\DeclarePairedDelimiter{\bk}{\lbrack}{\rbrack}        % brackets
+\DeclarePairedDelimiter{\br}{\lbrace}{\rbrace}        % braces
+\DeclarePairedDelimiter{\vr}{\lvert}{\rvert}          % pipes
+\DeclarePairedDelimiter{\dvr}{\lVert}{\rVert}         % double pipes
+\newcommand{\abs}[1]{\vr*{#1}}                        % absolute value
+\newcommand{\norm}[1]{\dvr*{#1}}                      % norm
+\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}} % evaluation limits
+\newcommand{\order}[1]{\mathcal{O}\pr*{#1}}           % order of magnitude
+\newcommand{\comm}[2]{\bk*{#1, #2}}                   % commutator
+\newcommand{\acomm}[2]{\br*{#1, #2}}                  % anticommutator
+\newcommand{\pb}[2]{\br*{#1, #2}}                     % poisson bracket
+
+% vector notation
+\newcommand{\vb}[1]{\bm{#1}}                % bold vector
+\newcommand{\vu}[1]{\bm{\hat{#1}}}          % unit vector
+\newcommand{\vdot}{\bm{\cdot}}              % dot product
+\newcommand{\vcrs}{\bm{\times}}             % cross product
+\newcommand{\grad}[1]{\bm{\nabla} #1}       % gradient
+\newcommand{\divr}[1]{\bm{\nabla} \vdot #1} % divergence
+\newcommand{\curl}[1]{\bm{\nabla} \vcrs #1} % curl
+\newcommand{\slap}[1]{\nabla^2 #1}          % scalar laplacian
+\newcommand{\vlap}[1]{\bm{\nabla}^2 #1}     % vector laplacian
+\newcommand{\del}{\bm{\nabla}}              % del operator (bold nabla)
+
+% dirac notation
+\renewcommand{\bra}{\Bra}             % expanding bra as default
+\renewcommand{\ket}{\Ket}             % expanding ket as default
+\renewcommand{\braket}{\Braket}       % expanding bra-ket as default
+\newcommand{\ev}[1]{\braket{#1}}      % expectation value
+\newcommand{\ip}[2]{\braket{#1|#2}}   % inner product
+\newcommand{\op}[2]{\ket{#1}\bra{#2}} % outer product
+
+% matrices
+\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthesis matrix
+\newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
+\newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
+\newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
+\newcommand{\tp}{^\mathrm{T}}                          % transpose
+\DeclareMathOperator{\tr}{tr}                          % trace
+
+% conjugates
+\newcommand{\cc}[1]{#1^*}    % complex conjugate
+\newcommand{\hc}[1]{#1^\dag} % hermitian conjugate
+
+% linear operators
+\newcommand{\vop}[1]{\bm{\hat{#1}}} % vector operator
+\newcommand{\sop}[1]{\hat{#1}}      % scalar operator
+
+% constants
+\newcommand{\img}{i} % imaginary unit
+\newcommand{\eul}{e} % euler's number
+
+% other
+\newcommand{\defn}{\coloneq}            % definition
+\newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscripts
+\DeclareRobustCommand\_{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
+
+\endinput
