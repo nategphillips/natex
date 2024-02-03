@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2023/01/17 A custom LaTeX package focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/02/03 A custom LaTeX package focused on consistent notation for engineering and physics applications.]
 
 \RequirePackage{bm}        % needed for bold vectors
 \RequirePackage{braket}    % needed for dirac notation
@@ -62,6 +62,8 @@
 \newcommand{\eul}{e} % euler's number
 
 % other
+\renewcommand{\Re}{\operatorname{Re}}   % real part
+\renewcommand{\Im}{\operatorname{Im}}   % imaginary part
 \newcommand{\defn}{\coloneq}            % definition
 \newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscripts
 \DeclareRobustCommand\_{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
