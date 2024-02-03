@@ -61,11 +61,15 @@
 \newcommand{\img}{i} % imaginary unit
 \newcommand{\eul}{e} % euler's number
 
+% probability
+\DeclareMathOperator{\erf}{erf}   % error function
+\DeclareMathOperator{\erfc}{erfc} % complementary error function
+
 % other
 \renewcommand{\Re}{\operatorname{Re}}   % real part
 \renewcommand{\Im}{\operatorname{Im}}   % imaginary part
 \newcommand{\defn}{\coloneq}            % definition
 \newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscripts
-\DeclareRobustCommand\_{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
+\DeclareRobustCommand{\_}{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
 
 \endinput
