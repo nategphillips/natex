@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/02/03 A custom LaTeX package focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/02/12 A custom LaTeX package focused on consistent notation for engineering and physics applications.]
 
 \RequirePackage{bm}        % needed for bold vectors
 \RequirePackage{braket}    % needed for dirac notation
@@ -11,9 +11,9 @@
 \DeclarePairedDelimiter{\bk}{\lbrack}{\rbrack}        % brackets
 \DeclarePairedDelimiter{\br}{\lbrace}{\rbrace}        % braces
 \DeclarePairedDelimiter{\vr}{\lvert}{\rvert}          % pipes
-\DeclarePairedDelimiter{\dvr}{\lVert}{\rVert}         % double pipes
+\DeclarePairedDelimiter{\dv}{\lVert}{\rVert}          % double pipes
 \newcommand{\abs}[1]{\vr*{#1}}                        % absolute value
-\newcommand{\norm}[1]{\dvr*{#1}}                      % norm
+\newcommand{\norm}[1]{\dv*{#1}}                       % norm
 \newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}} % evaluation limits
 \newcommand{\order}[1]{\mathcal{O}\pr*{#1}}           % order of magnitude
 \newcommand{\comm}[2]{\bk*{#1, #2}}                   % commutator
@@ -34,9 +34,6 @@
 \newcommand{\del}{\bm{\nabla}}              % del operator (bold nabla)
 
 % dirac notation
-\renewcommand{\bra}{\Bra}             % expanding bra as default
-\renewcommand{\ket}{\Ket}             % expanding ket as default
-\renewcommand{\braket}{\Braket}       % expanding bra-ket as default
 \newcommand{\ev}[1]{\braket{#1}}      % expectation value
 \newcommand{\ip}[2]{\braket{#1|#2}}   % inner product
 \newcommand{\op}[2]{\ket{#1}\bra{#2}} % outer product
