@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natex}
+
+% hyperref
+\urlstyle{same}
+
+% increase default row height
+\renewcommand{\arraystretch}{1.2}
+
+\title{The \texttt{natex} package}
+\author{Nathan Phillips}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    A collection of commands focused on consistent notation for engineering and physics applications. The repository for this package can be found at: \url{https://github.com/amilkyboi/natex}.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+\section{Included Packages}
+
+This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|braket|, \verb|mathtools|, and \verb|physics2| packages. Only the \verb|ab| module is loaded for \verb|physics2|.
+
+\newpage
+\section{Commands}
+
+\subsection{Automated Bracing}
+
+\begin{tabular}{llll}
+    Command       & Usage                 & Output           & Definition         \\
+    \hline
+    \verb|\abs|   & \verb|\abs{x}|        & $\abs{x}$        & absolute value     \\
+    \verb|\norm|  & \verb|\norm{x}|       & $\norm{x}$       & norm               \\
+    \verb|\eval|  & \verb|\eval{x}{a}{b}| & $\eval{x}{a}{b}$ & evaluation limits  \\
+    \verb|\order| & \verb|\order{x^2}|    & $\order{x^2}$    & order of magnitude \\
+    \verb|\comm|  & \verb|\comm{x}{y}|    & $\comm{x}{y}$    & commutator         \\
+    \verb|\acomm| & \verb|\acomm{x}{y}|   & $\acomm{x}{y}$   & anticommutator     \\
+    \verb|\pb|    & \verb|\pb{x}{y}|      & $\pb{x}{y}$      & Poisson bracket    \\
+\end{tabular}
+
+\subsection{Vector Notation}
+
+\begin{tabular}{llll}
+    Command       & Usage                      & Output                 & Definition       \\
+    \hline
+    \verb|\vb|    & \verb|\vb{x}|              & $\vb{x}$               & bold vector      \\
+    \verb|\vu|    & \verb|\vu{x}|              & $\vu{x}$               & unit vector      \\
+    \verb|\vdot|  & \verb|\vb{x} \vdot \vb{y}| & $\vb{x} \vdot \vb{y}$  & dot product      \\
+    \verb|\vcrs|  & \verb|\vb{x} \vcrs \vb{y}| & $\vb{x} \vcrs \vb{y}$  & cross product    \\
+    \verb|\grad|  & \verb|\grad{x}|            & $\grad{x}$             & gradient         \\
+    \verb|\divr|  & \verb|\divr{\vb{x}}|       & $\divr{\vb{x}}$        & divergence       \\
+    \verb|\curl|  & \verb|\curl{\vb{x}}|       & $\curl{\vb{x}}$        & curl             \\
+    \verb|\slap|  & \verb|\slap{x}|            & $\slap{x}$             & scalar Laplacian \\
+    \verb|\vlap|  & \verb|\vlap{\vb{x}}|       & $\vlap{\vb{x}}$        & vector Laplacian \\
+    \verb|\dalem| & \verb|\dalem|              & $\dalem$               & d'Alembertian    \\
+    \verb|\del|   & \verb|\del|                & $\del$                 & del              \\
+\end{tabular}
+
+\subsection{Dirac Notation}
+
+\begin{tabular}{llll}
+    Command    & Usage            & Output      & Definition        \\
+    \hline
+    \verb|\ev| & \verb|\ev{x}|    & $\ev{x}$    & expectation value \\
+    \verb|\ip| & \verb|\ip{x}{y}| & $\ip{x}{y}$ & inner product     \\
+    \verb|\op| & \verb|\op{x}{y}| & $\op{x}{y}$ & outer product     \\
+\end{tabular}
+
+\subsection{Matrix Notation}
+
+\begin{tabular}{llll}
+    Command     & Usage                           & Output                     & Definition           \\
+    \hline                                                                                            \\ [-3ex]
+    \verb|\pmx| & \verb|\pmx{1 & 2 \\ 3 & 4}|     & $\pmx{1 & 2 \\ 3 & 4}$     & parenthetical matrix \\ [3ex]
+    \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|     & $\bmx{1 & 2 \\ 3 & 4}$     & bracketed matrix     \\ [3ex]
+    \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|     & $\vmx{1 & 2 \\ 3 & 4}$     & vertical matrix      \\ [3ex]
+    \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|     & $\cmx{1 & 2 \\ 3 & 4}$     & curly matrix         \\ [3ex]
+    \verb|\tp|  & \verb|\pmx{1 & 2 \\ 3 & 4} \tp| & $\pmx{1 & 2 \\ 3 & 4} \tp$ & transpose            \\ [3ex]
+    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}| & $\tr \pmx{1 & 2 \\ 3 & 4}$ & trace                \\
+\end{tabular}
+
+\subsection{Conjugates}
+
+\begin{tabular}{llll}
+    Command    & Usage         & Output   & Definition          \\
+    \hline
+    \verb|\cc| & \verb|\cc{x}| & $\cc{x}$ & complex conjugate   \\
+    \verb|\hc| & \verb|\hc{x}| & $\hc{x}$ & Hermitian conjugate \\
+\end{tabular}
+
+\subsection{Linear Operators}
+
+\begin{tabular}{llll}
+    Command     & Usage          & Output    & Definition      \\
+    \hline
+    \verb|\sop| & \verb|\sop{x}| & $\sop{x}$ & scalar operator \\
+    \verb|\vop| & \verb|\vop{x}| & $\vop{x}$ & vector operator \\
+\end{tabular}
+
+\subsection{Probability}
+
+\begin{tabular}{llll}
+    Command      & Usage        & Output  & Definition                   \\
+    \hline
+    \verb|\erf|  & \verb|\erf|  & $\erf$  & error function               \\
+    \verb|\erfc| & \verb|\erfc| & $\erfc$ & complementary error function \\
+\end{tabular}
+
+\subsection{Other}
+
+\begin{tabular}{llll}
+    Command      & Usage            & Output      & Definition        \\
+    \hline
+    \verb|\Re|   & \verb|\Re|       & $\Re$       & real part         \\
+    \verb|\Im|   & \verb|\Im|       & $\Im$       & imaginary part    \\
+    \verb|\defn| & \verb|\defn|     & $\defn$     & defined as        \\
+    \verb|\_|    & \verb|x\_{text}| & $x\_{text}$ & upright subscript \\
+\end{tabular}
+
+\subsection{Constants}
+
+\begin{tabular}{llll}
+    Command     & Usage       & Output & Definition     \\
+    \hline
+    \verb|\img| & \verb|\img| & $\img$ & imaginary unit \\
+    \verb|\eul| & \verb|\eul| & $\eul$ & Euler's number \\
+\end{tabular}
+
+\end{document}

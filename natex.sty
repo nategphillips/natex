@@ -1,24 +1,23 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/02/12 A custom LaTeX package focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/02/14 A collection of commands focused on consistent notation for engineering and physics applications.]
 
+\RequirePackage{amssymb}   % needed for d'alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
 \RequirePackage{braket}    % needed for dirac notation
-\RequirePackage{amssymb}   % needed for d'alembertian operator
-\RequirePackage{mathtools} % needed for automated bracing, etc.
+\RequirePackage{mathtools} % needed for operators and more
+\RequirePackage{physics2}  % needed for automatic bracing
+
+% physics2 imports
+\usephysicsmodule{ab}
 
 % automated bracing
-\DeclarePairedDelimiter{\pr}{\lparen}{\rparen}        % parenthesis
-\DeclarePairedDelimiter{\bk}{\lbrack}{\rbrack}        % brackets
-\DeclarePairedDelimiter{\br}{\lbrace}{\rbrace}        % braces
-\DeclarePairedDelimiter{\vr}{\lvert}{\rvert}          % pipes
-\DeclarePairedDelimiter{\dv}{\lVert}{\rVert}          % double pipes
-\newcommand{\abs}[1]{\vr*{#1}}                        % absolute value
-\newcommand{\norm}[1]{\dv*{#1}}                       % norm
+\newcommand{\abs}[1]{\ab|#1|}                         % absolute value
+\newcommand{\norm}[1]{\ab\|#1\|}                      % norm
 \newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}} % evaluation limits
-\newcommand{\order}[1]{\mathcal{O}\pr*{#1}}           % order of magnitude
-\newcommand{\comm}[2]{\bk*{#1, #2}}                   % commutator
-\newcommand{\acomm}[2]{\br*{#1, #2}}                  % anticommutator
-\newcommand{\pb}[2]{\br*{#1, #2}}                     % poisson bracket
+\newcommand{\order}[1]{\mathcal{O}\ab(#1)}            % order of magnitude
+\newcommand{\comm}[2]{\ab[#1, #2]}                    % commutator
+\newcommand{\acomm}[2]{\ab\{#1, #2\}}                 % anticommutator
+\newcommand{\pb}[2]{\ab\{#1, #2\}}                    % Poisson bracket
 
 % vector notation
 \newcommand{\vb}[1]{\bm{#1}}                % bold vector
@@ -28,10 +27,10 @@
 \newcommand{\grad}[1]{\bm{\nabla} #1}       % gradient
 \newcommand{\divr}[1]{\bm{\nabla} \vdot #1} % divergence
 \newcommand{\curl}[1]{\bm{\nabla} \vcrs #1} % curl
-\newcommand{\slap}[1]{\nabla^2 #1}          % scalar laplacian
-\newcommand{\vlap}[1]{\bm{\nabla}^2 #1}     % vector laplacian
-\newcommand{\dalem}[1]{\Box #1}             % d'alembertian
-\newcommand{\del}{\bm{\nabla}}              % del operator (bold nabla)
+\newcommand{\slap}[1]{\nabla^2 #1}          % scalar Laplacian
+\newcommand{\vlap}[1]{\bm{\nabla}^2 #1}     % vector Laplacian
+\newcommand{\dalem}[1]{\Box #1}             % d'Alembertian
+\newcommand{\del}{\bm{\nabla}}              % del
 
 % dirac notation
 \newcommand{\ev}[1]{\braket{#1}}      % expectation value
@@ -39,7 +38,7 @@
 \newcommand{\op}[2]{\ket{#1}\bra{#2}} % outer product
 
 % matrices
-\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthesis matrix
+\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
 \newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
 \newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
 \newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
@@ -48,15 +47,11 @@
 
 % conjugates
 \newcommand{\cc}[1]{#1^*}    % complex conjugate
-\newcommand{\hc}[1]{#1^\dag} % hermitian conjugate
+\newcommand{\hc}[1]{#1^\dag} % Hermitian conjugate
 
 % linear operators
-\newcommand{\vop}[1]{\bm{\hat{#1}}} % vector operator
 \newcommand{\sop}[1]{\hat{#1}}      % scalar operator
-
-% constants
-\newcommand{\img}{i} % imaginary unit
-\newcommand{\eul}{e} % euler's number
+\newcommand{\vop}[1]{\bm{\hat{#1}}} % vector operator
 
 % probability
 \DeclareMathOperator{\erf}{erf}   % error function
@@ -65,8 +60,12 @@
 % other
 \renewcommand{\Re}{\operatorname{Re}}   % real part
 \renewcommand{\Im}{\operatorname{Im}}   % imaginary part
-\newcommand{\defn}{\coloneq}            % definition
-\newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscripts
+\newcommand{\defn}{\coloneq}            % defined as
+\newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscript
 \DeclareRobustCommand{\_}{\ifmmode\expandafter\subtxt\else\textunderscore\fi}
+
+% constants
+\newcommand{\img}{i} % imaginary unit
+\newcommand{\eul}{e} % Euler's number
 
 \endinput

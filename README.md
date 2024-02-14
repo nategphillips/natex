@@ -1,6 +1,6 @@
 # natex
 
-A custom LaTeX package focused on consistent notation for engineering and physics applications.
+A collection of commands focused on consistent notation for engineering and physics applications.
 
 ## Installation
 
@@ -8,4 +8,4 @@ I use a system-wide installation of MiKTeX, so that's the installation process I
 
 ### Other Systems
 
-For Linux, MacOS, etc. look [here](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). See [this page](https://miktex.org/kb/texmf-roots) for more details on MiKTeX specific implementations.
+For Linux and MacOS look [here](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). See [this page](https://miktex.org/kb/texmf-roots) for more details on MiKTeX specific implementations.
