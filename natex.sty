@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/02/14 A collection of commands focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/02/16 A collection of commands focused on consistent notation for engineering and physics applications.]
 
-\RequirePackage{amssymb}   % needed for d'alembertian operator
+\RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
 \RequirePackage{braket}    % needed for dirac notation
 \RequirePackage{mathtools} % needed for operators and more
@@ -42,12 +42,10 @@
 \newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
 \newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
 \newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
-\newcommand{\tp}{^\mathrm{T}}                          % transpose
 \DeclareMathOperator{\tr}{tr}                          % trace
-
-% conjugates
-\newcommand{\cc}[1]{#1^*}    % complex conjugate
-\newcommand{\hc}[1]{#1^\dag} % Hermitian conjugate
+\newcommand{\tp}[1]{#1^\mathrm{T}}                     % transpose
+\newcommand{\cc}[1]{#1^*}                              % complex conjugate
+\newcommand{\hc}[1]{#1^\dag}                           % Hermitian conjugate
 
 % linear operators
 \newcommand{\sop}[1]{\hat{#1}}      % scalar operator

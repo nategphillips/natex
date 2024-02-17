@@ -47,19 +47,19 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|braket|,
 \subsection{Vector Notation}
 
 \begin{tabular}{llll}
-    Command       & Usage                      & Output                 & Definition       \\
+    Command       & Usage                      & Output                & Definition       \\
     \hline
-    \verb|\vb|    & \verb|\vb{x}|              & $\vb{x}$               & bold vector      \\
-    \verb|\vu|    & \verb|\vu{x}|              & $\vu{x}$               & unit vector      \\
-    \verb|\vdot|  & \verb|\vb{x} \vdot \vb{y}| & $\vb{x} \vdot \vb{y}$  & dot product      \\
-    \verb|\vcrs|  & \verb|\vb{x} \vcrs \vb{y}| & $\vb{x} \vcrs \vb{y}$  & cross product    \\
-    \verb|\grad|  & \verb|\grad{x}|            & $\grad{x}$             & gradient         \\
-    \verb|\divr|  & \verb|\divr{\vb{x}}|       & $\divr{\vb{x}}$        & divergence       \\
-    \verb|\curl|  & \verb|\curl{\vb{x}}|       & $\curl{\vb{x}}$        & curl             \\
-    \verb|\slap|  & \verb|\slap{x}|            & $\slap{x}$             & scalar Laplacian \\
-    \verb|\vlap|  & \verb|\vlap{\vb{x}}|       & $\vlap{\vb{x}}$        & vector Laplacian \\
-    \verb|\dalem| & \verb|\dalem|              & $\dalem$               & d'Alembertian    \\
-    \verb|\del|   & \verb|\del|                & $\del$                 & del              \\
+    \verb|\vb|    & \verb|\vb{x}|              & $\vb{x}$              & bold vector      \\
+    \verb|\vu|    & \verb|\vu{x}|              & $\vu{x}$              & unit vector      \\
+    \verb|\vdot|  & \verb|\vb{x} \vdot \vb{y}| & $\vb{x} \vdot \vb{y}$ & dot product      \\
+    \verb|\vcrs|  & \verb|\vb{x} \vcrs \vb{y}| & $\vb{x} \vcrs \vb{y}$ & cross product    \\
+    \verb|\grad|  & \verb|\grad{x}|            & $\grad{x}$            & gradient         \\
+    \verb|\divr|  & \verb|\divr{\vb{x}}|       & $\divr{\vb{x}}$       & divergence       \\
+    \verb|\curl|  & \verb|\curl{\vb{x}}|       & $\curl{\vb{x}}$       & curl             \\
+    \verb|\slap|  & \verb|\slap{x}|            & $\slap{x}$            & scalar Laplacian \\
+    \verb|\vlap|  & \verb|\vlap{\vb{x}}|       & $\vlap{\vb{x}}$       & vector Laplacian \\
+    \verb|\dalem| & \verb|\dalem|              & $\dalem$              & d'Alembertian    \\
+    \verb|\del|   & \verb|\del|                & $\del$                & del              \\
 \end{tabular}
 
 \subsection{Dirac Notation}
@@ -81,17 +81,10 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|braket|,
     \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|     & $\bmx{1 & 2 \\ 3 & 4}$     & bracketed matrix     \\ [3ex]
     \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|     & $\vmx{1 & 2 \\ 3 & 4}$     & vertical matrix      \\ [3ex]
     \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|     & $\cmx{1 & 2 \\ 3 & 4}$     & curly matrix         \\ [3ex]
-    \verb|\tp|  & \verb|\pmx{1 & 2 \\ 3 & 4} \tp| & $\pmx{1 & 2 \\ 3 & 4} \tp$ & transpose            \\ [3ex]
-    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}| & $\tr \pmx{1 & 2 \\ 3 & 4}$ & trace                \\
-\end{tabular}
-
-\subsection{Conjugates}
-
-\begin{tabular}{llll}
-    Command    & Usage         & Output   & Definition          \\
-    \hline
-    \verb|\cc| & \verb|\cc{x}| & $\cc{x}$ & complex conjugate   \\
-    \verb|\hc| & \verb|\hc{x}| & $\hc{x}$ & Hermitian conjugate \\
+    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}| & $\tr \pmx{1 & 2 \\ 3 & 4}$ & trace                \\ [3ex]
+    \verb|\tp|  & \verb|\tp{A}|                   & $\tp{A}$                   & transpose            \\
+    \verb|\cc|  & \verb|\cc{A}|                   & $\cc{A}$                   & complex conjugate    \\
+    \verb|\hc|  & \verb|\hc{A}|                   & $\hc{A}$                   & Hermitian conjugate  \\
 \end{tabular}
 
 \subsection{Linear Operators}
