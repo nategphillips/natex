@@ -1,12 +1,20 @@
 \documentclass[11pt]{article}
 \usepackage[hidelinks]{hyperref}
-\usepackage{natex}
+\usepackage{natex, pagecolor}
 
 % hyperref
 \urlstyle{same}
 
 % increase default row height
 \renewcommand{\arraystretch}{1.2}
+
+% background and foreground colors
+\definecolor{bgcolor}{HTML}{1e1e2e}
+\definecolor{fgcolor}{HTML}{cdd6f4}
+
+% pagecolor
+\pagecolor{bgcolor}
+\color{fgcolor}
 
 \title{The \texttt{natex} package}
 \author{Nathan Phillips}
