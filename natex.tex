@@ -34,7 +34,7 @@
 \newpage
 \section{Included Packages}
 
-This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|braket|, \verb|mathtools|, and \verb|physics2| packages. Only the \verb|ab| module is loaded for \verb|physics2|.
+This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|mathtools|, and \verb|physics2| packages. Only the \verb|ab| module is loaded for \verb|physics2|.
 
 \newpage
 \section{Commands}
@@ -74,26 +74,29 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|braket|,
 \subsection{Dirac Notation}
 
 \begin{tabular}{llll}
-    Command    & Usage            & Output      & Definition        \\
+    Command     & Usage                & Output          & Definition        \\
     \hline
-    \verb|\ev| & \verb|\ev{x}|    & $\ev{x}$    & expectation value \\
-    \verb|\ip| & \verb|\ip{x}{y}| & $\ip{x}{y}$ & inner product     \\
-    \verb|\op| & \verb|\op{x}{y}| & $\op{x}{y}$ & outer product     \\
+    \verb|\bra| & \verb|\bra{x}|       & $\bra{x}$       & bra               \\
+    \verb|\ket| & \verb|\ket{x}|       & $\ket{x}$       & ket               \\
+    \verb|\ev|  & \verb|\ev{x}|        & $\ev{x}$        & expectation value \\
+    \verb|\ip|  & \verb|\ip{x}{y}|     & $\ip{x}{y}$     & inner product     \\
+    \verb|\op|  & \verb|\op{x}{y}|     & $\op{x}{y}$     & outer product     \\
+    \verb|\mel| & \verb|\mel{x}{y}{z}| & $\mel{x}{y}{z}$ & matrix element    \\
 \end{tabular}
 
 \subsection{Matrix Notation}
 
 \begin{tabular}{llll}
-    Command     & Usage                           & Output                     & Definition           \\
-    \hline                                                                                            \\ [-3ex]
-    \verb|\pmx| & \verb|\pmx{1 & 2 \\ 3 & 4}|     & $\pmx{1 & 2 \\ 3 & 4}$     & parenthetical matrix \\ [3ex]
-    \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|     & $\bmx{1 & 2 \\ 3 & 4}$     & bracketed matrix     \\ [3ex]
-    \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|     & $\vmx{1 & 2 \\ 3 & 4}$     & vertical matrix      \\ [3ex]
-    \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|     & $\cmx{1 & 2 \\ 3 & 4}$     & curly matrix         \\ [3ex]
-    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}| & $\tr \pmx{1 & 2 \\ 3 & 4}$ & trace                \\ [3ex]
-    \verb|\tp|  & \verb|\tp{A}|                   & $\tp{A}$                   & transpose            \\
-    \verb|\cc|  & \verb|\cc{A}|                   & $\cc{A}$                   & complex conjugate    \\
-    \verb|\hc|  & \verb|\hc{A}|                   & $\hc{A}$                   & Hermitian conjugate  \\
+    Command     & Usage                           & Output      & Definition          \\
+    \hline                                                                            \\ [-3ex]
+    \verb|\pmx| & \verb|\pmx{1 & 2 \\ 3 & 4}|     & $\pmx{1     & 2                   \\ 3 & 4}$     & parenthetical matrix \\ [3ex]
+    \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|     & $\bmx{1     & 2                   \\ 3 & 4}$     & bracketed matrix     \\ [3ex]
+    \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|     & $\vmx{1     & 2                   \\ 3 & 4}$     & vertical matrix      \\ [3ex]
+    \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|     & $\cmx{1     & 2                   \\ 3 & 4}$     & curly matrix         \\ [3ex]
+    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}| & $\tr \pmx{1 & 2                   \\ 3 & 4}$ & trace                \\ [3ex]
+    \verb|\tp|  & \verb|\tp{A}|                   & $\tp{A}$    & transpose           \\
+    \verb|\cc|  & \verb|\cc{A}|                   & $\cc{A}$    & complex conjugate   \\
+    \verb|\hc|  & \verb|\hc{A}|                   & $\hc{A}$    & Hermitian conjugate \\
 \end{tabular}
 
 \subsection{Linear Operators}

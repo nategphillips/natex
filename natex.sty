@@ -1,9 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/09/04 A collection of commands focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/10/07 A collection of commands focused on consistent notation for engineering and physics applications.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
-\RequirePackage{braket}    % needed for dirac notation
 \RequirePackage{mathtools} % needed for operators and more
 \RequirePackage{physics2}  % needed for automatic bracing
 
@@ -33,9 +32,12 @@
 \newcommand{\del}{\bm{\nabla}}              % del
 
 % dirac notation
-\newcommand{\ev}[1]{\braket{#1}}      % expectation value
-\newcommand{\ip}[2]{\braket{#1|#2}}   % inner product
-\newcommand{\op}[2]{\ket{#1}\bra{#2}} % outer product
+\DeclarePairedDelimiter\bra{\langle}{\rvert}                                                                  % bra
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}                                                                  % ket
+\DeclarePairedDelimiter\ev{\langle}{\rangle}                                                                  % expectation value
+\DeclarePairedDelimiterX\ip[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
+\DeclarePairedDelimiterX\op[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
+\DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
 
 % matrices
 \newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
