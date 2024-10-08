@@ -40,7 +40,11 @@
 \DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
 
 % set notation
+\newcommand{\naturals}{\mathbb{N}}                                        % set of natural numbers
+\newcommand{\integers}{\mathbb{Z}}                                        % set of integers
+\newcommand{\rationals}{\mathbb{Q}}                                       % set of rational numbers
 \newcommand{\reals}{\mathbb{R}}                                           % set of real numbers
+\newcommand{\complexes}{\mathbb{C}}                                       % set of complex numbers
 \DeclarePairedDelimiterX\set[1]{\lbrace}{\rbrace}{\setaux #1||\endsetaux} % set builder notation
 \def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
 
