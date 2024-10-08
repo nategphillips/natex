@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/10/07 A collection of commands focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/10/08 A collection of commands focused on consistent notation for engineering and physics applications.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
@@ -38,6 +38,11 @@
 \DeclarePairedDelimiterX\ip[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
 \DeclarePairedDelimiterX\op[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
 \DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
+
+% set notation
+\newcommand{\reals}{\mathbb{R}}                                           % set of real numbers
+\DeclarePairedDelimiterX\set[1]{\lbrace}{\rbrace}{\setaux #1||\endsetaux} % set builder notation
+\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
 
 % matrices
 \newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
