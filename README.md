@@ -1,6 +1,6 @@
 # natex
 
-A collection of commands focused on consistent notation for engineering and physics applications.
+A collection of commands focused on consistent notation for mathematics, physics, and engineering.
 
 ## Installation
 

@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/10/08 A collection of commands focused on consistent notation for engineering and physics applications.]
+\ProvidesPackage{natex}[2024/10/10 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
@@ -26,8 +26,8 @@
 \newcommand{\grad}[1]{\bm{\nabla} #1}       % gradient
 \newcommand{\divr}[1]{\bm{\nabla} \vdot #1} % divergence
 \newcommand{\curl}[1]{\bm{\nabla} \vcrs #1} % curl
-\newcommand{\slap}[1]{\nabla^2 #1}          % scalar Laplacian
-\newcommand{\vlap}[1]{\bm{\nabla}^2 #1}     % vector Laplacian
+\newcommand{\slap}[1]{\nabla^{2} #1}        % scalar Laplacian
+\newcommand{\vlap}[1]{\bm{\nabla}^{2} #1}   % vector Laplacian
 \newcommand{\dalem}[1]{\Box #1}             % d'Alembertian
 \newcommand{\del}{\bm{\nabla}}              % del
 
@@ -40,11 +40,11 @@
 \DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
 
 % set notation
-\newcommand{\naturals}{\mathbb{N}}                                        % set of natural numbers
-\newcommand{\integers}{\mathbb{Z}}                                        % set of integers
-\newcommand{\rationals}{\mathbb{Q}}                                       % set of rational numbers
-\newcommand{\reals}{\mathbb{R}}                                           % set of real numbers
-\newcommand{\complexes}{\mathbb{C}}                                       % set of complex numbers
+\newcommand{\N}{\mathbb{N}}                                               % set of natural numbers
+\newcommand{\Z}{\mathbb{Z}}                                               % set of integers
+\newcommand{\Q}{\mathbb{Q}}                                               % set of rational numbers
+\newcommand{\R}{\mathbb{R}}                                               % set of real numbers
+\newcommand{\C}{\mathbb{C}}                                               % set of complex numbers
 \DeclarePairedDelimiterX\set[1]{\lbrace}{\rbrace}{\setaux #1||\endsetaux} % set builder notation
 \def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
 
@@ -54,9 +54,9 @@
 \newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
 \newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
 \DeclareMathOperator{\tr}{tr}                          % trace
-\newcommand{\tp}[1]{#1^\textsf{T}}                     % transpose
-\newcommand{\cc}[1]{#1^*}                              % complex conjugate
-\newcommand{\hc}[1]{#1^\dag}                           % Hermitian conjugate
+\newcommand{\tp}[1]{#1^{\textsf{T}}}                   % transpose
+\newcommand{\cc}[1]{#1^{*}}                            % complex conjugate
+\newcommand{\hc}[1]{#1^{\dag}}                         % Hermitian conjugate
 
 % linear operators
 \newcommand{\sop}[1]{\hat{#1}}      % scalar operator
@@ -82,7 +82,7 @@
 % other
 \renewcommand{\Re}{\operatorname{Re}}   % real part
 \renewcommand{\Im}{\operatorname{Im}}   % imaginary part
-\newcommand{\defn}{\coloneq}            % defined as
+\newcommand{\defas}{\coloneq}           % defined as
 \newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscript
 \newcommand{\suptxt}[1]{^{\mathrm{#1}}} % upright superscript
 
