@@ -1,22 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2024/10/10 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex}[2024/10/11 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
-\RequirePackage{mathtools} % needed for operators and more
-\RequirePackage{physics2}  % needed for automatic bracing
-
-% physics2 imports
-\usephysicsmodule{ab}
+\RequirePackage{mathtools} % needed for operators, paired delimiters, etc.
 
 % automated bracing
-\newcommand{\abs}[1]{\ab|#1|}                         % absolute value
-\newcommand{\norm}[1]{\ab\|#1\|}                      % norm
-\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}} % evaluation limits
-\newcommand{\order}[1]{\mathcal{O}\ab(#1)}            % order of magnitude
-\newcommand{\comm}[2]{\ab[#1, #2]}                    % commutator
-\newcommand{\acomm}[2]{\ab\{#1, #2\}}                 % anticommutator
-\newcommand{\pb}[2]{\ab\{#1, #2\}}                    % Poisson bracket
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                  % absolute value
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                 % norm
+\DeclarePairedDelimiterX{\comm}[2]{\lbrack}{\rbrack}{#1, #2}   % commutator
+\DeclarePairedDelimiterX{\acomm}[2]{\lbrace}{\rbrace}{#1, #2}  % anticommutator
+\DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}     % Poisson bracket
+\DeclarePairedDelimiterXPP{\order}[1]{\mathcal{O}}{(}{)}{}{#1} % order of magnitude
+\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}}          % evaluation limits
 
 % vector notation
 \newcommand{\vb}[1]{\bm{#1}}                % bold vector
@@ -32,21 +28,20 @@
 \newcommand{\del}{\bm{\nabla}}              % del
 
 % dirac notation
-\DeclarePairedDelimiter\bra{\langle}{\rvert}                                                                  % bra
-\DeclarePairedDelimiter\ket{\lvert}{\rangle}                                                                  % ket
-\DeclarePairedDelimiter\ev{\langle}{\rangle}                                                                  % expectation value
-\DeclarePairedDelimiterX\ip[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
-\DeclarePairedDelimiterX\op[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
-\DeclarePairedDelimiterX\mel[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                  % bra
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                  % ket
+\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                  % expectation value
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
+\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
+\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
 
 % set notation
-\newcommand{\N}{\mathbb{N}}                                               % set of natural numbers
-\newcommand{\Z}{\mathbb{Z}}                                               % set of integers
-\newcommand{\Q}{\mathbb{Q}}                                               % set of rational numbers
-\newcommand{\R}{\mathbb{R}}                                               % set of real numbers
-\newcommand{\C}{\mathbb{C}}                                               % set of complex numbers
-\DeclarePairedDelimiterX\set[1]{\lbrace}{\rbrace}{\setaux #1||\endsetaux} % set builder notation
-\def\setaux#1|#2|#3\endsetaux{\if\relax\detokenize{#2}\relax #1 \else #1 \;\delimsize\vert\; #2 \fi}
+\newcommand{\N}{\mathbb{N}}                                                            % set of natural numbers
+\newcommand{\Z}{\mathbb{Z}}                                                            % set of integers
+\newcommand{\Q}{\mathbb{Q}}                                                            % set of rational numbers
+\newcommand{\R}{\mathbb{R}}                                                            % set of real numbers
+\newcommand{\C}{\mathbb{C}}                                                            % set of complex numbers
+\DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
 
 % matrices
 \newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix

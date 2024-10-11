@@ -34,7 +34,7 @@
 \newpage
 \section{Included Packages}
 
-This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|mathtools|, and \verb|physics2| packages. Only the \verb|ab| module is loaded for \verb|physics2|.
+This package requires and includes the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packages.
 
 \newpage
 \section{Commands}
@@ -46,11 +46,11 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|mathtool
     \hline
     \verb|\abs|   & \verb|\abs{x}|        & $\abs{x}$        & absolute value     \\
     \verb|\norm|  & \verb|\norm{x}|       & $\norm{x}$       & norm               \\
-    \verb|\eval|  & \verb|\eval{x}{a}{b}| & $\eval{x}{a}{b}$ & evaluation limits  \\
-    \verb|\order| & \verb|\order{x^{2}}|  & $\order{x^2}$    & order of magnitude \\
     \verb|\comm|  & \verb|\comm{x}{y}|    & $\comm{x}{y}$    & commutator         \\
     \verb|\acomm| & \verb|\acomm{x}{y}|   & $\acomm{x}{y}$   & anticommutator     \\
     \verb|\pb|    & \verb|\pb{x}{y}|      & $\pb{x}{y}$      & Poisson bracket    \\
+    \verb|\order| & \verb|\order{x}|      & $\order{x}$      & order of magnitude \\
+    \verb|\eval|  & \verb|\eval{x}{a}{b}| & $\eval{x}{a}{b}$ & evaluation limits  \\
 \end{tabular}
 
 \subsection{Vector Notation}
@@ -87,20 +87,20 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, \verb|mathtool
 \subsection{Set Notation}
 
 \begin{tabular}{llll}
-    Command     & Usage                 & Output           & Definition              \\
+    Command     & Usage                 & Output                & Definition              \\
     \hline
-    \verb|\N|   & \verb|\N|             & $\N$             & set of natural numbers  \\
-    \verb|\Z|   & \verb|\Z|             & $\Z$             & set of integers         \\
-    \verb|\Q|   & \verb|\Q|             & $\Q$             & set of rational numbers \\
-    \verb|\R|   & \verb|\R|             & $\R$             & set of real numbers     \\
-    \verb|\C|   & \verb|\C|             & $\C$             & set of complex numbers  \\
-    \verb|\set| & \verb=\set{a | b, c}= & $\set{a | b, c}$ & set builder notation    \\
+    \verb|\N|   & \verb|\N|             & $\N$                  & set of natural numbers  \\
+    \verb|\Z|   & \verb|\Z|             & $\Z$                  & set of integers         \\
+    \verb|\Q|   & \verb|\Q|             & $\Q$                  & set of rational numbers \\
+    \verb|\R|   & \verb|\R|             & $\R$                  & set of real numbers     \\
+    \verb|\C|   & \verb|\C|             & $\C$                  & set of complex numbers  \\
+    \verb|\set| & \verb=\set{a | b, c}= & $\set{a \given b, c}$ & set builder notation    \\
 \end{tabular}
 
 \subsection{Matrix Notation}
 
 \begin{tabular}{llll}
-    Command     & Usage                           & Output      & Definition                           \\
+    Command     & Usage                           & Output                     & Definition           \\
     \hline                                                                                            \\ [-3ex]
     \verb|\pmx| & \verb|\pmx{1 & 2 \\ 3 & 4}|     & $\pmx{1 & 2 \\ 3 & 4}$     & parenthetical matrix \\ [3ex]
     \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|     & $\bmx{1 & 2 \\ 3 & 4}$     & bracketed matrix     \\ [3ex]
