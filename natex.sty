@@ -6,13 +6,13 @@
 \RequirePackage{mathtools} % needed for operators, paired delimiters, etc.
 
 % automated bracing
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                  % absolute value
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                 % norm
-\DeclarePairedDelimiterX{\comm}[2]{\lbrack}{\rbrack}{#1, #2}   % commutator
-\DeclarePairedDelimiterX{\acomm}[2]{\lbrace}{\rbrace}{#1, #2}  % anticommutator
-\DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}     % Poisson bracket
-\DeclarePairedDelimiterXPP{\order}[1]{\mathcal{O}}{(}{)}{}{#1} % order of magnitude
-\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}}          % evaluation limits
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                              % absolute value
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                             % norm
+\DeclarePairedDelimiterX{\comm}[2]{\lbrack}{\rbrack}{#1, #2}               % commutator
+\DeclarePairedDelimiterX{\acomm}[2]{\lbrace}{\rbrace}{#1, #2}              % anticommutator
+\DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}                 % Poisson bracket
+\DeclarePairedDelimiterXPP{\order}[1]{\mathcal{O}}{\lparen}{\rparen}{}{#1} % order of magnitude
+\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}}                      % evaluation limits
 
 % vector notation
 \newcommand{\vb}[1]{\bm{#1}}                % bold vector
