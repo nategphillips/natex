@@ -2,6 +2,10 @@
 
 A collection of commands focused on consistent notation for mathematics, physics, and engineering.
 
+## Aside
+
+Does anyone know what the hell happened to GitHub's $\LaTeX$ rendering inside Markdown files? Seriously, look at what I just typed—it looks terrible. The font is terrible, the spacing is terrible, it's all bad. What I don't understand is that it looked perfectly fine about a year ago, but I can't find any information about them changing something on the backend. From what I've read, they've been using MathJax since the beginning which makes it even more baffling that it's changed so drastically. I've viewed it on multiple browsers as well, so it's certainly not a problem on my end. Not a good look when static site generators have significantly better markup than a company owned by Microsoft. Can't say I'm surprised.
+
 ## General Information
 
 ### Motivation
@@ -12,7 +16,7 @@ Throughout, I make extensive use of `DeclarePairedDelimiter` and `DeclarePairedD
 
 ### Vector Notation
 
-I prefer the clean look of bold vectors, $\bm{x}$, over the traditional $\LaTeX$ style, $\vec{x}$. Vector notation is aimed at being as explicit as possible, with all vector operators being bolded for clarity.
+I prefer the clean look of bold vectors, $\boldsymbol{x}$, over the traditional $\LaTeX$ style, $\vec{x}$. Vector notation is aimed at being as explicit as possible, with all vector operators being bolded for clarity.
 
 ### Dirac Notation
 
