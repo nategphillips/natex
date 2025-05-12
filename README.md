@@ -2,10 +2,6 @@
 
 A collection of commands focused on consistent notation for mathematics, physics, and engineering.
 
-## Aside
-
-Does anyone know what the hell happened to GitHub's $\LaTeX$ rendering inside Markdown files? Seriously, look at what I just typed—it looks terrible. The font is terrible, the spacing is terrible, it's all bad. What I don't understand is that it looked perfectly fine about a year ago, but I can't find any information about them changing something on the backend. From what I've read, they've been using MathJax since the beginning which makes it even more baffling that it's changed so drastically. I've viewed it on multiple browsers as well, so it's certainly not a problem on my end. Not a good look when static site generators have significantly better markup than a company owned by Microsoft. Can't say I'm surprised.
-
 ## General Information
 
 ### Motivation
@@ -45,9 +41,15 @@ I've redefined the `\Re` and `\Im` commands since I find the Fraktur symbols $\R
 ## Installation
 
 > [!NOTE]
-> I don't intend for anyone to actually use this package themselves since notation is an extremely subjective topic. Hopefully the information contained here can still prove useful for those wanting to create their own package, however.
+> I don't intend for anyone to actually use this package themselves since notation is an extremely subjective topic. Hopefully the information contained here can still prove useful for those wanting to create their own package, however. If you do end up using `natex`, thanks!
 
-### Windows
+### CTAN
+
+I have recently published this package on Comprehensive TeX Archive Network (CTAN)! It should be available in both MiKTeX and TeX Live.
+
+### Local Installation
+
+#### Windows
 
 I use a system-wide installation of MiKTeX on Windows, so that's the installation process I'll elaborate on here.
 
@@ -57,6 +59,23 @@ I use a system-wide installation of MiKTeX on Windows, so that's the installatio
 
 You can now import the `natex` package inside your `.tex` files just as you would with any other package.
 
-### Other Systems
+#### Other Systems
 
 For Linux and macOS look [here](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). See [this page](https://miktex.org/kb/texmf-roots) for more details on MiKTeX specific implementations.
+
+## License and Copyright
+
+Copyright 2025 Nathan G. Phillips
+
+This work may be distributed and/or modified under the conditions of the LaTeX Project Public License, either version 1.3 of this license or (at your option) any later version. The latest version of this license is in <https://www.latex-project.org/lppl.txt> and version 1.3c or later is part of all distributions of LaTeX version 2008 or later.
+
+This work has the LPPL maintenance status `maintained`.
+
+The Current Maintainer of this work is Nathan G. Phillips.
+
+The bundle contains the files:
+
+    README.md   This file.
+    natex.sty   The package itself.
+    natex.pdf   The package documentation in PDF format.
+    natex.tex   The master file that produced natex.pdf.
