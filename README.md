@@ -43,13 +43,7 @@ I've redefined the `\Re` and `\Im` commands since I find the Fraktur symbols $\R
 > [!NOTE]
 > I don't intend for anyone to actually use this package themselves since notation is an extremely subjective topic. Hopefully the information contained here can still prove useful for those wanting to create their own package, however. If you do end up using `natex`, thanks!
 
-### CTAN
-
-I have recently published this package on Comprehensive TeX Archive Network (CTAN)! It should be available in both MiKTeX and TeX Live.
-
-### Local Installation
-
-#### Windows
+### Windows
 
 I use a system-wide installation of MiKTeX on Windows, so that's the installation process I'll elaborate on here.
 
@@ -59,7 +53,7 @@ I use a system-wide installation of MiKTeX on Windows, so that's the installatio
 
 You can now import the `natex` package inside your `.tex` files just as you would with any other package.
 
-#### Other Systems
+### Other Systems
 
 For Linux and macOS look [here](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). See [this page](https://miktex.org/kb/texmf-roots) for more details on MiKTeX specific implementations.
 
