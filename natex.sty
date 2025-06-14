@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex}[2025/05/14 v0.1.0 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex}[2025/06/13 v0.1.1 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
@@ -27,7 +27,7 @@
 \DeclarePairedDelimiterXPP{\acomm}[2]{}{\lbrack}{\rbrack}{_{+}}{#1, #2}    % anticommutator
 \DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}                 % Poisson bracket
 \DeclarePairedDelimiterXPP{\order}[1]{\mathcal{O}}{\lparen}{\rparen}{}{#1} % order of magnitude
-\newcommand{\eval}[3]{\left.#1\right\rvert_{#2}^{#3}}                      % evaluation limits
+\newcommand{\eval}[1]{\left.#1\right\rvert}                                % evaluation limits
 
 % vector notation
 \newcommand{\vb}[1]{\bm{#1}}                % bold vector
