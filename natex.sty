@@ -59,13 +59,24 @@
 \DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
 
 % matrices
+
+% Shift the intercal symbol up slightly, see https://tex.stackexchange.com/a/217624.
+\makeatletter
+\newcommand*{\transpose}{
+  {\mathpalette\@transpose{}}
+}
+\newcommand*{\@transpose}[2]{
+  \raisebox{\depth}{$\m@th#1\intercal$}
+}
+\makeatother
+
 \newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
 \newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
 \newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
 \newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
 \DeclareMathOperator{\tr}{tr}                          % trace
 \DeclareMathOperator{\adj}{adj}                        % adjugate
-\newcommand{\tp}[1]{#1^{\mathsf{T}}}                   % transpose
+\newcommand{\tp}[1]{#1^{\transpose}}                   % transpose
 \newcommand{\cc}[1]{#1^{*}}                            % complex conjugate
 \newcommand{\hc}[1]{#1^{\dag}}                         % Hermitian conjugate
 
@@ -91,8 +102,8 @@
 \DeclareMathOperator{\csch}{csch}     % hyperbolic cosecant
 
 % other
-\renewcommand{\Re}{\operatorname{Re}}   % real part
-\renewcommand{\Im}{\operatorname{Im}}   % imaginary part
+\DeclareMathOperator{\real}{Re}         % real part
+\DeclareMathOperator{\imag}{Im}         % imaginary part
 \newcommand{\defas}{\coloneq}           % defined as
 \newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscript
 \newcommand{\suptxt}[1]{^{\mathrm{#1}}} % upright superscript

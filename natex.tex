@@ -15,22 +15,27 @@
 
 \documentclass[11pt]{article}
 
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks]{hyperref}
 \usepackage{natex, xcolor, pagecolor}
 
 % hyperref
-\urlstyle{same}
+\hypersetup{
+    linkcolor = pink,
+    urlcolor = green,
+}
 
 % increase default row height
 \renewcommand{\arraystretch}{1.2}
 
 % background and foreground colors
-\definecolor{bgcolor}{HTML}{1e1e2e}
-\definecolor{fgcolor}{HTML}{cdd6f4}
+\definecolor{pink}{HTML}{f5c2e7}
+\definecolor{green}{HTML}{a6e3a1}
+\definecolor{text}{HTML}{cdd6f4}
+\definecolor{base}{HTML}{1e1e2e}
 
 % pagecolor
-\pagecolor{bgcolor}
-\color{fgcolor}
+\pagecolor{base}
+\color{text}
 
 \title{The \texttt{natex} package}
 \author{Nathan G. Phillips}
@@ -49,7 +54,7 @@
 \newpage
 \section{Included Packages}
 
-This package requires and includes the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packages.
+This package requires the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packages.
 
 \newpage
 \section{Commands}
@@ -170,8 +175,8 @@ This package requires and includes the \verb|amssymb|, \verb|bm|, and \verb|math
 \begin{tabular}{llll}
     Command        & Usage                 & Output           & Definition          \\
     \hline
-    \verb|\Re|     & \verb|\Re|            & $\Re$            & real part           \\
-    \verb|\Im|     & \verb|\Im|            & $\Im$            & imaginary part      \\
+    \verb|\real|   & \verb|\real|          & $\real$          & real part           \\
+    \verb|\imag|   & \verb|\imag|          & $\imag$          & imaginary part      \\
     \verb|\defas|  & \verb|\defas|         & $\defas$         & defined as          \\
     \verb|\subtxt| & \verb|x\subtxt{text}| & $x\subtxt{text}$ & upright subscript   \\
     \verb|\suptxt| & \verb|x\suptxt{text}| & $x\suptxt{text}$ & upright superscript \\
