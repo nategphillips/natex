@@ -79,6 +79,6 @@ The bundle contains the files:
         natex-lualatex.pdf   The package documentation in PDF format.
         natex-lualatex.tex   The master file that produced natex-lualatex.pdf.
     natex-pdflatex/
-        natex-lualatex.sty   The pdfLaTeX version of the package itself.
-        natex-lualatex.pdf   The package documentation in PDF format.
-        natex-lualatex.tex   The master file that produced natex-pdflatex.pdf.
+        natex-pdflatex.sty   The pdfLaTeX version of the package itself.
+        natex-pdflatex.pdf   The package documentation in PDF format.
+        natex-pdflatex.tex   The master file that produced natex-pdflatex.pdf.
