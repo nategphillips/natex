@@ -2,6 +2,10 @@
 
 A collection of commands focused on consistent notation for mathematics, physics, and engineering.
 
+## pdfLaTeX and LuaLaTeX
+
+These days, LuaTeX is the [officially recommended](https://www.texdev.net/2024/11/05/engine-news-from-the-latex-project) engine for all new projects. As such, I've created two versions of this package: one for the pdfLaTeX format and one for the LuaLaTeX format. I started checking out the LuaLaTeX ecosystem recently and found myself appreciating the Unicode support and [NewComputerModern](https://ctan.org/pkg/newcomputermodern) font family, so it's probably what I'll be using from now on. Until I completely phase out my use of pdfLaTeX, that version of the package will stay around.
+
 ## General Information
 
 ### Motivation
@@ -36,7 +40,7 @@ Some of the more obscure trig functions that aren't included in base $\LaTeX$ or
 
 ### Other
 
-I've redefined the `\Re` and `\Im` commands since I find the Fraktur symbols $\Re$ and $\Im$ to be ambiguous and visually unappealing. Although there's no universal symbol for defining a variable, I've seen $\coloneqq$ around enough to warrant its use. Finally, there are a pair of upright subscript and upright superscript macros.
+I've defined the `\real` and `\imag` commands since I find the Fraktur symbols $\Re$ and $\Im$ to be ambiguous and visually unappealing. Although there's no universal symbol for defining a variable, I've seen $\coloneqq$ around enough to warrant its use. Finally, there are a pair of upright subscript and upright superscript macros.
 
 ## Installation
 
@@ -69,7 +73,12 @@ The Current Maintainer of this work is Nathan G. Phillips.
 
 The bundle contains the files:
 
-    README.md   This file.
-    natex.sty   The package itself.
-    natex.pdf   The package documentation in PDF format.
-    natex.tex   The master file that produced natex.pdf.
+    README.md                This file.
+    natex-lualatex/
+        natex-lualatex.sty   The LuaLaTeX version of the package itself.
+        natex-lualatex.pdf   The package documentation in PDF format.
+        natex-lualatex.tex   The master file that produced natex-lualatex.pdf.
+    natex-pdflatex/
+        natex-lualatex.sty   The pdfLaTeX version of the package itself.
+        natex-lualatex.pdf   The package documentation in PDF format.
+        natex-lualatex.tex   The master file that produced natex-pdflatex.pdf.

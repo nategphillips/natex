@@ -1,4 +1,4 @@
-% natex.tex
+% natex-lualatex.tex
 % Copyright 2025 Nathan G. Phillips
 %
 % This work may be distributed and/or modified under the
@@ -13,10 +13,11 @@
 %
 % The Current Maintainer of this work is Nathan G. Phillips.
 
+% !TeX program = lualatex
 \documentclass[11pt]{article}
 
 \usepackage[colorlinks]{hyperref}
-\usepackage{microtype, natex, xcolor, pagecolor}
+\usepackage{microtype, natex-lualatex, xcolor, pagecolor}
 
 % hyperref
 \hypersetup{
@@ -37,7 +38,7 @@
 \pagecolor{base}
 \color{text}
 
-\title{The \texttt{natex} package}
+\title{The \texttt{natex-lualatex} package}
 \author{Nathan G. Phillips}
 \date{\today}
 
@@ -54,7 +55,7 @@
 \newpage
 \section{Included Packages}
 
-This package requires the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packages.
+This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-math| packages.
 
 \newpage
 \section{Commands}

@@ -1,0 +1,135 @@
+% natex-lualatex.sty
+% Copyright 2025 Nathan G. Phillips
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained`.
+%
+% The Current Maintainer of this work is Nathan G. Phillips.
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{natex-lualatex}[2025/10/10 v0.1.4 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+
+% Required for operators, paired delimiters, and more.
+\RequirePackage{mathtools}
+% Replaces amssymb, amsfonts, mathrsfs, etc. and allows for Unicode input of math.
+\RequirePackage{unicode-math}
+
+% Set the bold versions of uppercase Latin, lowercase Latin, and lowercase Greek to italic while
+% keeping uppercase Greek upright. This convention follows what the bm package does, i.e., if a
+% letter is italic by default, then its bold version is italic. I have no idea why this isn't a
+% built-in option for unicode-math. See https://tex.stackexchange.com/a/583067.
+\ExplSyntaxOn
+\bool_gset_false:N \g__um_bfliteral_bool
+\bool_gset_true:N  \g__um_bfupGreek_bool
+\bool_gset_false:N \g__um_bfupgreek_bool
+\bool_gset_false:N \g__um_bfupLatin_bool
+\bool_gset_false:N \g__um_bfuplatin_bool
+\ExplSyntaxOff
+
+% Since fontsetup requires unicode-math, it must be loaded after the bold symbol syntax is
+% redefined (not sure why). It also requires fontspec and the NewComputerModern fonts themselves to
+% be installed.
+\RequirePackage[default]{fontsetup}
+
+% As far as I know, unicode-math has no way of creating non-alphanumeric bold symbols like hats,
+% dots, or crosses. The \boldsymbol command from amsmath works fine if a bold math font exists, but
+% apparently it's quite inefficient: https://tex.stackexchange.com/a/734727. Instead, I took
+% inspiration from [this](https://tex.stackexchange.com/a/447042) post and directly access the bold
+% Unicode glyphs for circumflex, \cdot, and \times. This method avoids the use of \boldsymbol
+% entirely but requires a font which supports bold math.
+\DeclareFontFamily{TU}{newcmmathbold}{}
+\DeclareFontShape{TU}{newcmmathbold}{bx}{n}
+  {<-> \UnicodeFontName{NewCMMath-Bold}{mode=base;script=math;language=DFLT}}{}
+\DeclareSymbolFont{boldglyphs}{TU}{newcmmathbold}{bx}{n}
+% Documentation for the \Umathaccent and \Umathchar commands can be found on page 14 of the XeTeX
+% reference and page 108 of the LuaTeX reference manuals. The fixed keyword selects the unstretched
+% version of the hat, \relax prevents the command from expanding any further.
+% \Umathaccent [keyword] ⟨math type⟩ ⟨family⟩ ⟨glyph slot⟩
+\newcommand{\boldhat}{\Umathaccent fixed 7\symboldglyphs"0302\relax}
+
+% automated bracing
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                              % absolute value
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                             % norm
+\DeclarePairedDelimiterXPP{\comm}[2]{}{\lbrack}{\rbrack}{_{-}}{#1, #2}     % commutator
+\DeclarePairedDelimiterXPP{\acomm}[2]{}{\lbrack}{\rbrack}{_{+}}{#1, #2}    % anticommutator
+\DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}                 % Poisson bracket
+\DeclarePairedDelimiterXPP{\order}[1]{\mathcal{O}}{\lparen}{\rparen}{}{#1} % order of magnitude
+\newcommand{\eval}[1]{\left.#1\right\rvert}                                % evaluation limits
+
+% vector notation
+\newcommand{\vb}[1]{\symbf{#1}}                % bold vector
+\newcommand{\vu}[1]{\boldhat{\symbf{#1}}}      % unit vector
+% \Umathchar ⟨math type⟩ ⟨family⟩ ⟨glyph slot⟩
+\newcommand{\vdot}{\mathbin{\Umathchar 0\symboldglyphs"22C5\relax}} % dot product
+\newcommand{\vcrs}{\mathbin{\Umathchar 0\symboldglyphs"00D7\relax}} % cross product
+\newcommand{\grad}[1]{\symbf{\nabla} #1}       % gradient
+\newcommand{\divr}[1]{\symbf{\nabla} \vdot #1} % divergence
+\newcommand{\curl}[1]{\symbf{\nabla} \vcrs #1} % curl
+\newcommand{\slap}[1]{\nabla^{2} #1}           % scalar Laplacian
+\newcommand{\vlap}[1]{\symbf{\nabla}^{2} #1}   % vector Laplacian
+\newcommand{\dalem}[1]{\mdlgwhtsquare #1}      % d'Alembertian
+\newcommand{\del}{\symbf{\nabla}}              % del
+
+% dirac notation
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                  % bra
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                  % ket
+\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                  % expectation value
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
+\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
+\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
+
+% set notation
+\newcommand{\N}{\mathbb{N}}                                                            % set of natural numbers
+\newcommand{\Z}{\mathbb{Z}}                                                            % set of integers
+\newcommand{\Q}{\mathbb{Q}}                                                            % set of rational numbers
+\newcommand{\R}{\mathbb{R}}                                                            % set of real numbers
+\newcommand{\C}{\mathbb{C}}                                                            % set of complex numbers
+\DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
+
+% matrices
+\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
+\newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
+\newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
+\newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
+\DeclareMathOperator{\tr}{tr}                          % trace
+\DeclareMathOperator{\adj}{adj}                        % adjugate
+\newcommand{\tp}{\mathsf{T}}                           % transpose
+\newcommand{\cc}{*}                                    % complex conjugate
+\newcommand{\hc}{\dag}                                 % Hermitian conjugate
+
+% linear operators
+\newcommand{\sop}[1]{\hat{#1}}             % scalar operator
+\newcommand{\vop}[1]{\symbf{\boldhat{#1}}} % vector operator
+
+% probability
+\DeclareMathOperator{\erf}{erf}   % error function
+\DeclareMathOperator{\erfc}{erfc} % complementary error function
+
+% trigonometric functions
+\DeclareMathOperator{\asin}{asin}     % arcsine
+\DeclareMathOperator{\acos}{acos}     % arccosine
+\DeclareMathOperator{\atan}{atan}     % arctangent
+\DeclareMathOperator{\asec}{asec}     % arcsecant
+\DeclareMathOperator{\arcsec}{arcsec} % arcsecant
+\DeclareMathOperator{\acsc}{acsc}     % arccosecant
+\DeclareMathOperator{\arccsc}{arccsc} % arccosecant
+\DeclareMathOperator{\acot}{acot}     % arccotangent
+\DeclareMathOperator{\arccot}{arccot} % arccotangent
+\DeclareMathOperator{\sech}{sech}     % hyperbolic secant
+\DeclareMathOperator{\csch}{csch}     % hyperbolic cosecant
+
+% other
+\DeclareMathOperator{\real}{Re}         % real part
+\DeclareMathOperator{\imag}{Im}         % imaginary part
+\newcommand{\defas}{\coloneq}           % defined as
+\newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscript
+\newcommand{\suptxt}[1]{^{\mathrm{#1}}} % upright superscript
+
+\endinput
