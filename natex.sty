@@ -59,24 +59,13 @@
 \DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
 
 % matrices
-
-% Shift the intercal symbol up slightly, see https://tex.stackexchange.com/a/217624.
-\makeatletter
-\newcommand*{\transpose}{
-  {\mathpalette\@transpose{}}
-}
-\newcommand*{\@transpose}[2]{
-  \raisebox{\depth}{$\m@th#1\intercal$}
-}
-\makeatother
-
 \newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
 \newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
 \newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
 \newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
 \DeclareMathOperator{\tr}{tr}                          % trace
 \DeclareMathOperator{\adj}{adj}                        % adjugate
-\newcommand{\tp}{\transpose}                           % transpose
+\newcommand{\tp}{\mathsf{T}}                           % transpose
 \newcommand{\cc}{*}                                    % complex conjugate
 \newcommand{\hc}{\dag}                                 % Hermitian conjugate
 
