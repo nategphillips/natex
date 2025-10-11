@@ -16,7 +16,7 @@
 \documentclass[11pt]{article}
 
 \usepackage[colorlinks]{hyperref}
-\usepackage{natex, xcolor, pagecolor}
+\usepackage{microtype, natex, xcolor, pagecolor}
 
 % hyperref
 \hypersetup{
@@ -80,8 +80,8 @@ This package requires the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packag
     \hline
     \verb|\vb|    & \verb|\vb{x}|              & $\vb{x}$              & bold vector      \\
     \verb|\vu|    & \verb|\vu{x}|              & $\vu{x}$              & unit vector      \\
-    \verb|\vdot|  & \verb|\vb{x} \vdot \vb{y}| & $\vb{x} \vdot \vb{y}$ & dot product      \\
-    \verb|\vcrs|  & \verb|\vb{x} \vcrs \vb{y}| & $\vb{x} \vcrs \vb{y}$ & cross product    \\
+    \verb|\vdot|  & \verb|\vb{x}\vdot\vb{y}|   & $\vb{x}\vdot\vb{y}$   & dot product      \\
+    \verb|\vcrs|  & \verb|\vb{x}\vcrs\vb{y}|   & $\vb{x}\vcrs\vb{y}$   & cross product    \\
     \verb|\grad|  & \verb|\grad{x}|            & $\grad{x}$            & gradient         \\
     \verb|\divr|  & \verb|\divr{\vb{x}}|       & $\divr{\vb{x}}$       & divergence       \\
     \verb|\curl|  & \verb|\curl{\vb{x}}|       & $\curl{\vb{x}}$       & curl             \\
@@ -127,11 +127,11 @@ This package requires the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packag
     \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|      & $\bmx{1 & 2 \\ 3 & 4}$      & bracketed matrix     \\ [3ex]
     \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|      & $\vmx{1 & 2 \\ 3 & 4}$      & vertical matrix      \\ [3ex]
     \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|      & $\cmx{1 & 2 \\ 3 & 4}$      & curly matrix         \\ [3ex]
-    \verb|\tr|  & \verb|\tr \pmx{1 & 2 \\ 3 & 4}|  & $\tr \pmx{1 & 2 \\ 3 & 4}$  & trace                \\ [3ex]
-    \verb|\adj| & \verb|\adj \pmx{1 & 2 \\ 3 & 4}| & $\adj \pmx{1 & 2 \\ 3 & 4}$ & adjugate             \\ [3ex]
-    \verb|\tp|  & \verb|\tp{A}|                    & $\tp{A}$                    & transpose            \\
-    \verb|\cc|  & \verb|\cc{A}|                    & $\cc{A}$                    & complex conjugate    \\
-    \verb|\hc|  & \verb|\hc{A}|                    & $\hc{A}$                    & Hermitian conjugate  \\
+    \verb|\tr|  & \verb|\tr{A}|                    & $\tr{A}$                    & trace                \\
+    \verb|\adj| & \verb|\adj{A}|                   & $\adj{A}$                   & adjugate             \\
+    \verb|\tp|  & \verb|A^\tp|                     & $A^\tp$                     & transpose            \\
+    \verb|\cc|  & \verb|A^\cc|                     & $A^\cc$                     & complex conjugate    \\
+    \verb|\hc|  & \verb|A^\hc|                     & $A^\hc$                     & Hermitian conjugate  \\
 \end{tabular}
 
 \subsection{Linear Operators}
@@ -146,10 +146,10 @@ This package requires the \verb|amssymb|, \verb|bm|, and \verb|mathtools| packag
 \subsection{Probability}
 
 \begin{tabular}{llll}
-    Command      & Usage        & Output  & Definition                   \\
+    Command      & Usage           & Output     & Definition                   \\
     \hline
-    \verb|\erf|  & \verb|\erf|  & $\erf$  & error function               \\
-    \verb|\erfc| & \verb|\erfc| & $\erfc$ & complementary error function \\
+    \verb|\erf|  & \verb|\erf{x}|  & $\erf{x}$  & error function               \\
+    \verb|\erfc| & \verb|\erfc{x}| & $\erfc{x}$ & complementary error function \\
 \end{tabular}
 
 \subsection{Trigonometric Functions}
