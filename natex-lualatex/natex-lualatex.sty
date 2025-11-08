@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex-lualatex}[2025/10/10 v0.1.4 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex-lualatex}[2025/11/07 v0.1.5 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 % Required for operators, paired delimiters, and more.
 \RequirePackage{mathtools}
@@ -64,18 +64,31 @@
 \newcommand{\eval}[1]{\left.#1\right\rvert}                                % evaluation limits
 
 % vector notation
-\newcommand{\vb}[1]{\symbf{#1}}                % bold vector
-\newcommand{\vu}[1]{\boldhat{\symbf{#1}}}      % unit vector
-% \Umathchar ⟨math type⟩ ⟨family⟩ ⟨glyph slot⟩
+
+% The 𝚤, 𝚥, and ℓ characters don't get bolded properly with the \symbf command for some reason,
+% so they get manually handled here.
+\ExplSyntaxOn
+\newcommand{\vb}[1]{%
+  \str_case:nnF {#1} 
+    { 
+        % \Umathchar ⟨math type⟩ ⟨family⟩ ⟨glyph slot⟩
+        {\imath}{\mathbin{\Umathchar 0\symboldglyphs"1D6A4\relax}}
+        {\jmath}{\mathbin{\Umathchar 0\symboldglyphs"1D6A5\relax}}
+        {\ell}{\mathbin{\Umathchar 0\symboldglyphs"2113\relax}}
+    }
+    {\symbf{#1}}
+}
+\ExplSyntaxOff                                                      % bold vector
+\newcommand{\vu}[1]{\boldhat{\vb{#1}}}                              % unit vector
 \newcommand{\vdot}{\mathbin{\Umathchar 0\symboldglyphs"22C5\relax}} % dot product
 \newcommand{\vcrs}{\mathbin{\Umathchar 0\symboldglyphs"00D7\relax}} % cross product
-\newcommand{\grad}[1]{\symbf{\nabla} #1}       % gradient
-\newcommand{\divr}[1]{\symbf{\nabla} \vdot #1} % divergence
-\newcommand{\curl}[1]{\symbf{\nabla} \vcrs #1} % curl
-\newcommand{\slap}[1]{\nabla^{2} #1}           % scalar Laplacian
-\newcommand{\vlap}[1]{\symbf{\nabla}^{2} #1}   % vector Laplacian
-\newcommand{\dalem}[1]{\mdlgwhtsquare #1}      % d'Alembertian
-\newcommand{\del}{\symbf{\nabla}}              % del
+\newcommand{\del}{\symbf{\nabla}}                                   % del
+\newcommand{\grad}[1]{\del #1}                                      % gradient
+\newcommand{\divr}[1]{\del \vdot #1}                                % divergence
+\newcommand{\curl}[1]{\del \vcrs #1}                                % curl
+\newcommand{\slap}[1]{\nabla^{2} #1}                                % scalar Laplacian
+\newcommand{\vlap}[1]{\del^{2} #1}                                  % vector Laplacian
+\newcommand{\dalem}[1]{\mdlgwhtsquare #1}                           % d'Alembertian
 
 % dirac notation
 \DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                  % bra
@@ -86,11 +99,11 @@
 \DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
 
 % set notation
-\newcommand{\N}{\mathbb{N}}                                                            % set of natural numbers
-\newcommand{\Z}{\mathbb{Z}}                                                            % set of integers
-\newcommand{\Q}{\mathbb{Q}}                                                            % set of rational numbers
-\newcommand{\R}{\mathbb{R}}                                                            % set of real numbers
-\newcommand{\C}{\mathbb{C}}                                                            % set of complex numbers
+\newcommand{\N}{\mathbb{N}}                                                        % set of natural numbers
+\newcommand{\Z}{\mathbb{Z}}                                                        % set of integers
+\newcommand{\Q}{\mathbb{Q}}                                                        % set of rational numbers
+\newcommand{\R}{\mathbb{R}}                                                        % set of real numbers
+\newcommand{\C}{\mathbb{C}}                                                        % set of complex numbers
 \DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
 
 % matrices
@@ -105,8 +118,8 @@
 \newcommand{\hc}{\dag}                                 % Hermitian conjugate
 
 % linear operators
-\newcommand{\sop}[1]{\hat{#1}}             % scalar operator
-\newcommand{\vop}[1]{\symbf{\boldhat{#1}}} % vector operator
+\newcommand{\sop}[1]{\hat{#1}}          % scalar operator
+\newcommand{\vop}[1]{\boldhat{\vb{#1}}} % vector operator
 
 % probability
 \DeclareMathOperator{\erf}{erf}   % error function
