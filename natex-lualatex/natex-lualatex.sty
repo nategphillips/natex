@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex-lualatex}[2026/04/23 v0.1.7 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex-lualatex}[2026/04/24 v0.1.8 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 % Required for operators, paired delimiters, and more.
 \RequirePackage{mathtools}
@@ -98,12 +98,13 @@
 \newcommand{\dalem}[1]{\mdlgwhtsquare #1}                           % d'Alembertian
 
 % dirac notation
-\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                  % bra
-\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                  % ket
-\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                  % expectation value
-\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
-\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
-\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                   % bra
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                   % ket
+\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                   % expectation value
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                               % inner product
+\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}              % outer product
+\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3}  % matrix element
+\DeclarePairedDelimiterX{\rmel}[3]{\langle}{\rangle}{#1\delimsize\Vert\mathopen{}#2\delimsize\Vert\mathopen{}#3} % reduced matrix element
 
 % set notation
 \newcommand{\N}{\mathbb{N}}                                                        % set of natural numbers
