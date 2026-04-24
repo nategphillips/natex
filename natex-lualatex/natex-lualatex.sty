@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex-lualatex}[2026/01/10 v0.1.6 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex-lualatex}[2026/04/23 v0.1.7 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 % Required for operators, paired delimiters, and more.
 \RequirePackage{mathtools}
@@ -33,10 +33,18 @@
 \bool_gset_false:N \g__um_bfuplatin_bool
 \ExplSyntaxOff
 
-% Since fontsetup requires unicode-math, it must be loaded after the bold symbol syntax is
-% redefined (not sure why). It also requires fontspec and the NewComputerModern fonts themselves to
-% be installed.
+% Even though fontsetup includes unicode-math itself, some weird error requires unicode-math to be
+% above the bold syntax and fontsetup to be below. This package also requires fontspec and the
+% NewComputerModern fonts themselves to be installed.
 \RequirePackage[default]{fontsetup}
+% As of 26/04/23, with the 8.0.0 release of the NewComputerModern package, any `0` characters in
+% math mode seem to be slashed by default, which I do not care for. I think this is because Unicode
+% variation selectors were added to a bunch of math glyphs in the update (see
+% [this](https://www.ctan.org/ctan-ann/id/73b4d59fa264a8dc@hogwart) changelog). Setting the math
+% font manually using the unicode-math `setmathfont` command seems to fix things, seems strange to
+% me since I figured that's what fontsetup was already doing internally. Regardless, it's probably
+% good form to set this explicitly anyway.
+\setmathfont{NewCMMath-Book}
 
 % As far as I know, unicode-math has no way of creating non-alphanumeric bold symbols like hats,
 % dots, or crosses. The \boldsymbol command from amsmath works fine if a bold math font exists, but
