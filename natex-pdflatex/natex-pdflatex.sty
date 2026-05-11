@@ -1,5 +1,5 @@
 % natex-pdflatex.sty
-% Copyright 2025 Nathan G. Phillips
+% Copyright 2025-2026 Nathan G. Phillips
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -14,7 +14,7 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex-pdflatex}[2025/10/10 v0.1.4 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex-pdflatex}[2026/05/10 v0.1.5 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 \RequirePackage{amssymb}   % needed for d'Alembertian operator
 \RequirePackage{bm}        % needed for bold vectors
@@ -43,12 +43,13 @@
 \newcommand{\del}{\bm{\nabla}}              % del
 
 % dirac notation
-\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                  % bra
-\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                  % ket
-\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                  % expectation value
-\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                              % inner product
-\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}             % outer product
-\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3} % matrix element
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}                                                                   % bra
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}                                                                   % ket
+\DeclarePairedDelimiter{\ev}{\langle}{\rangle}                                                                   % expectation value
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2}                               % inner product
+\DeclarePairedDelimiterX{\op}[2]{\lvert}{\rvert}{#1\delimsize\rangle\delimsize\langle\mathopen{}#2}              % outer product
+\DeclarePairedDelimiterX{\mel}[3]{\langle}{\rangle}{#1\delimsize\vert\mathopen{}#2\delimsize\vert\mathopen{}#3}  % matrix element
+\DeclarePairedDelimiterX{\rmel}[3]{\langle}{\rangle}{#1\delimsize\Vert\mathopen{}#2\delimsize\Vert\mathopen{}#3} % reduced matrix element
 
 % set notation
 \newcommand{\N}{\mathbb{N}}                                                            % set of natural numbers
