@@ -53,14 +53,14 @@
 \tableofcontents
 
 \newpage
-\section{Included Packages}
+\section{Included packages}
 
 This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-math| packages.
 
 \newpage
 \section{Commands}
 
-\subsection{Automated Bracing}
+\subsection{Automated bracing}
 
 \begin{tabular}{llll}
     Command       & Usage                 & Output           & Definition         \\
@@ -74,13 +74,15 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\eval|  & \verb|\eval{x}|       & $\eval{x}$       & evaluation limits  \\
 \end{tabular}
 
-\subsection{Vector Notation}
+\subsection{Vector notation}
 
 \begin{tabular}{llll}
     Command       & Usage                      & Output                & Definition       \\
     \hline
     \verb|\vb|    & \verb|\vb{x}|              & $\vb{x}$              & bold vector      \\
     \verb|\vu|    & \verb|\vu{x}|              & $\vu{x}$              & unit vector      \\
+    \verb|\mat|   & \verb|\matx{A}|            & $\matx{A}$            & matrix           \\
+    \verb|\tens|  & \verb|\tens{T}|            & $\tens{T}$            & tensor           \\
     \verb|\vdot|  & \verb|\vb{x}\vdot\vb{y}|   & $\vb{x}\vdot\vb{y}$   & dot product      \\
     \verb|\vcrs|  & \verb|\vb{x}\vcrs\vb{y}|   & $\vb{x}\vcrs\vb{y}$   & cross product    \\
     \verb|\del|   & \verb|\del|                & $\del$                & del              \\
@@ -92,7 +94,7 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\dalem| & \verb|\dalem|              & $\dalem$              & d'Alembertian    \\
 \end{tabular}
 
-\subsection{Dirac Notation}
+\subsection{Dirac notation}
 
 \begin{tabular}{llll}
     Command      & Usage                 & Output           & Definition                \\
@@ -106,7 +108,7 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\rmel| & \verb|\rmel{x}{y}{z}| & $\rmel{x}{y}{z}$ & reduced matrix element    \\
 \end{tabular}
 
-\subsection{Set Notation}
+\subsection{Set notation}
 
 \begin{tabular}{llll}
     Command     & Usage                      & Output                & Definition              \\
@@ -120,7 +122,7 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\set| & \verb|\set{a \given b, c}| & $\set{a \given b, c}$ & set builder notation    \\
 \end{tabular}
 
-\subsection{Matrix Notation}
+\subsection{Matrix notation}
 
 \begin{tabular}{llll}
     Command     & Usage                            & Output                      & Definition           \\
@@ -129,14 +131,14 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\bmx| & \verb|\bmx{1 & 2 \\ 3 & 4}|      & $\bmx{1 & 2 \\ 3 & 4}$      & bracketed matrix     \\ [3ex]
     \verb|\vmx| & \verb|\vmx{1 & 2 \\ 3 & 4}|      & $\vmx{1 & 2 \\ 3 & 4}$      & vertical matrix      \\ [3ex]
     \verb|\cmx| & \verb|\cmx{1 & 2 \\ 3 & 4}|      & $\cmx{1 & 2 \\ 3 & 4}$      & curly matrix         \\ [3ex]
-    \verb|\tr|  & \verb|\tr{A}|                    & $\tr{A}$                    & trace                \\
-    \verb|\adj| & \verb|\adj{A}|                   & $\adj{A}$                   & adjugate             \\
-    \verb|\tp|  & \verb|A^\tp|                     & $A^\tp$                     & transpose            \\
-    \verb|\cc|  & \verb|A^\cc|                     & $A^\cc$                     & complex conjugate    \\
-    \verb|\hc|  & \verb|A^\hc|                     & $A^\hc$                     & Hermitian conjugate  \\
+    \verb|\tr|  & \verb|\tr{\matx{A}}|             & $\tr{\matx{A}}$             & trace                \\
+    \verb|\adj| & \verb|\adj{\matx{A}}|            & $\adj{\matx{A}}$            & adjugate             \\
+    \verb|\tp|  & \verb|\matx{A}^\tp|              & $\matx{A}^\tp$              & transpose            \\
+    \verb|\cc|  & \verb|\matx{A}^\cc|              & $\matx{A}^\cc$              & complex conjugate    \\
+    \verb|\hc|  & \verb|\matx{A}^\hc|              & $\matx{A}^\hc$              & Hermitian conjugate  \\
 \end{tabular}
 
-\subsection{Linear Operators}
+\subsection{Linear operators}
 
 \begin{tabular}{llll}
     Command     & Usage          & Output    & Definition      \\
@@ -154,7 +156,7 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\erfc| & \verb|\erfc{x}| & $\erfc{x}$ & complementary error function \\
 \end{tabular}
 
-\subsection{Trigonometric Functions}
+\subsection{Trigonometric functions}
 
 \begin{tabular}{llll}
     Command        & Usage             & Output       & Definition          \\
@@ -172,6 +174,16 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\csch|   & \verb|\csch{x}|   & $\csch{x}$   & hyperbolic cosecant \\
 \end{tabular}
 
+\subsection{Mathematical constants}
+
+\begin{tabular}{llll}
+    Command     & Usage       & Output & Definition     \\
+    \hline
+    \verb|\img| & \verb|\img| & $\img$ & imaginary unit \\
+    \verb|\eul| & \verb|\eul| & $\eul$ & Euler's number \\
+    \verb|\pie| & \verb|\pie| & $\pie$ & pi             \\
+\end{tabular}
+
 \subsection{Other}
 
 \begin{tabular}{llll}
@@ -180,8 +192,6 @@ This package requires the \verb|fontsetup|, \verb|mathtools|, and \verb|unicode-
     \verb|\real|   & \verb|\real|          & $\real$          & real part           \\
     \verb|\imag|   & \verb|\imag|          & $\imag$          & imaginary part      \\
     \verb|\defas|  & \verb|\defas|         & $\defas$         & defined as          \\
-    \verb|\subtxt| & \verb|x\subtxt{text}| & $x\subtxt{text}$ & upright subscript   \\
-    \verb|\suptxt| & \verb|x\suptxt{text}| & $x\suptxt{text}$ & upright superscript \\
 \end{tabular}
 
 \end{document}

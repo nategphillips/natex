@@ -14,24 +14,28 @@
 % The Current Maintainer of this work is Nathan G. Phillips.
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{natex-lualatex}[2026/06/09 v0.1.9 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
+\ProvidesPackage{natex-lualatex}[2026/07/16 v0.2.0 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
 % Required for operators, paired delimiters, and more.
 \RequirePackage{mathtools}
 % Replaces amssymb, amsfonts, mathrsfs, etc. and allows for Unicode input of math.
-\RequirePackage{unicode-math}
+% Both ISO 80000-2 and IUPAC dictate that all variables, including uppercase Greek letters, should
+% be italicized. This also follows for bold symbols and sans-serif symbols.
+\RequirePackage[math-style=ISO,bold-style=ISO,sans-style=italic]{unicode-math}
 
+% BEGIN DISREGARD - SWITCHED TO ISO STANDARD
 % Set the bold versions of uppercase Latin, lowercase Latin, and lowercase Greek to italic while
 % keeping uppercase Greek upright. This convention follows what the bm package does, i.e., if a
 % letter is italic by default, then its bold version is italic. I have no idea why this isn't a
 % built-in option for unicode-math. See https://tex.stackexchange.com/a/583067.
-\ExplSyntaxOn
-\bool_gset_false:N \g__um_bfliteral_bool
-\bool_gset_true:N  \g__um_bfupGreek_bool
-\bool_gset_false:N \g__um_bfupgreek_bool
-\bool_gset_false:N \g__um_bfupLatin_bool
-\bool_gset_false:N \g__um_bfuplatin_bool
-\ExplSyntaxOff
+% \ExplSyntaxOn
+% \bool_gset_false:N \g__um_bfliteral_bool
+% \bool_gset_true:N  \g__um_bfupGreek_bool
+% \bool_gset_false:N \g__um_bfupgreek_bool
+% \bool_gset_false:N \g__um_bfupLatin_bool
+% \bool_gset_false:N \g__um_bfuplatin_bool
+% \ExplSyntaxOff
+% END DISREGARD
 
 % Even though fontsetup includes unicode-math itself, resetting the booleans above requires it to be
 % explicitly listed before fontsetup is required, not entirely sure why. This package also requires
@@ -52,7 +56,7 @@
 % font manually using the unicode-math `setmathfont` command seems to fix things, seems strange to
 % me since I figured that's what fontsetup was already doing internally. Regardless, it's probably
 % good form to set this explicitly anyway.
-% END DISREGARD - BUG HAS BEEN FIXED
+% END DISREGARD
 
 % As far as I know, unicode-math has no way of creating non-alphanumeric bold symbols like hats,
 % dots, or crosses. The \boldsymbol command from amsmath works fine if a bold math font exists, but
@@ -84,7 +88,7 @@
 % so they get manually handled here.
 \ExplSyntaxOn
 \newcommand{\vb}[1]{%
-  \str_case:nnF {#1}%
+    \str_case:nnF {#1}%
     {%
         % \Umathchar ⟨math type⟩ ⟨family⟩ ⟨glyph slot⟩
         {\imath}{\mathbin{\Umathchar 0\symboldglyphs"1D6A4\relax}}%
@@ -95,6 +99,8 @@
 }
 \ExplSyntaxOff                                                      % bold vector
 \newcommand{\vu}[1]{\boldhat{\vb{#1}}}                              % unit vector
+\newcommand{\matx}[1]{\vb{#1}}                                      % matrix
+\newcommand{\tens}[1]{\symbfsf{#1}}                                 % tensor
 \newcommand{\vdot}{\mathbin{\Umathchar 0\symboldglyphs"22C5\relax}} % dot product
 \newcommand{\vcrs}{\mathbin{\Umathchar 0\symboldglyphs"00D7\relax}} % cross product
 \newcommand{\del}{\symbf{\nabla}}                                   % del
@@ -123,10 +129,18 @@
 \DeclarePairedDelimiterX{\set}[1]{\lbrace}{\rbrace}{\def\given{\;\delimsize\vert\;}#1} % set builder notation
 
 % matrices
-\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}} % parenthetical matrix
-\newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}} % bracketed matrix
-\newcommand{\vmx}[1]{\begin{vmatrix} #1 \end{vmatrix}} % vertical matrix
-\newcommand{\cmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}} % curly matrix
+\newcommand{\pmx}[1]{
+    \begin{pmatrix} #1
+\end{pmatrix}} % parenthetical matrix
+\newcommand{\bmx}[1]{
+    \begin{bmatrix} #1
+\end{bmatrix}} % bracketed matrix
+\newcommand{\vmx}[1]{
+    \begin{vmatrix} #1
+\end{vmatrix}} % vertical matrix
+\newcommand{\cmx}[1]{
+    \begin{Bmatrix} #1
+\end{Bmatrix}} % curly matrix
 \DeclareMathOperator{\tr}{tr}                          % trace
 \DeclareMathOperator{\adj}{adj}                        % adjugate
 \newcommand{\tp}{\mathsf{T}}                           % transpose
@@ -154,11 +168,14 @@
 \DeclareMathOperator{\sech}{sech}     % hyperbolic secant
 \DeclareMathOperator{\csch}{csch}     % hyperbolic cosecant
 
+% mathematical constants
+\newcommand{\img}{\symup{i}}   % imaginary unit
+\newcommand{\eul}{\symup{e}}   % Euler's number
+\newcommand{\pie}{\symup{\pi}} % pi
+
 % other
 \DeclareMathOperator{\real}{Re}         % real part
 \DeclareMathOperator{\imag}{Im}         % imaginary part
 \newcommand{\defas}{≔}                  % defined as
-\newcommand{\subtxt}[1]{_{\mathrm{#1}}} % upright subscript
-\newcommand{\suptxt}[1]{^{\mathrm{#1}}} % upright superscript
 
 \endinput
