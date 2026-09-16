@@ -16,15 +16,20 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{natex-pdflatex}[2026/07/24 v0.2.1 A collection of commands focused on consistent notation for mathematics, physics, and engineering.]
 
-\RequirePackage{amssymb}   % needed for d'Alembertian operator
-\RequirePackage{bm}        % needed for bold vectors
-\RequirePackage{isomath}   % needed for following ISO standards with pdfLaTeX
-\RequirePackage{mathtools} % needed for operators, paired delimiters, etc.
-\RequirePackage{upgreek}   % needed for upright lowercase pi
+\RequirePackage{amssymb}                % needed for d'Alembertian operator
+\RequirePackage{bm}                     % needed for bold vectors
+\RequirePackage{mathtools}              % needed for operators, paired delimiters, etc.
+\RequirePackage{upgreek}                % needed for upright lowercase pi
+
+% Computer Modern doesn't offer bold italic sans-serif fonts by default, so we use the cmssm font
+% family provided by sansmathfonts with Original Math Letters (OML) encoding to define a custom
+% alphabet for use with tensors.
+\DeclareMathAlphabet{\mathsfbfit}{OML}{cmssm}{b}{it}
+\SetMathAlphabet{\mathsfbfit}{bold}{OML}{cmssm}{b}{it}
 
 % automated bracing
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                              % absolute value
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                             % norm
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert_{2}}                         % l^2 norm
 \DeclarePairedDelimiterXPP{\comm}[2]{}{\lbrack}{\rbrack}{_{-}}{#1, #2}     % commutator
 \DeclarePairedDelimiterXPP{\acomm}[2]{}{\lbrack}{\rbrack}{_{+}}{#1, #2}    % anticommutator
 \DeclarePairedDelimiterX{\pb}[2]{\lbrace}{\rbrace}{#1, #2}                 % Poisson bracket
@@ -35,7 +40,7 @@
 \newcommand{\vb}[1]{\bm{#1}}                % bold vector
 \newcommand{\vu}[1]{\bm{\hat{#1}}}          % unit vector
 \newcommand{\matx}[1]{\bm{#1}}              % matrix
-\newcommand{\tens}[1]{\tensorsym{#1}}       % tensor
+\newcommand{\tens}[1]{\mathsfbfit{#1}}      % tensor
 \newcommand{\vdot}{\bm{\cdot}}              % dot product
 \newcommand{\vcrs}{\bm{\times}}             % cross product
 \newcommand{\grad}[1]{\bm{\nabla} #1}       % gradient
